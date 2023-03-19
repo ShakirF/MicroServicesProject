@@ -2,6 +2,6 @@
 
 public class Feature
 {
-    public int Size { get; set; }
+    public string? Size { get; set; }
 }
 
