@@ -16,7 +16,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportStore.Services.Catalog
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{98784809-3C76-41C5-8781-73889AFD811E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportStore.Shared", "Shared\SportStore.Shared\SportStore.Shared.csproj", "{963CA1CE-4C99-4C29-BEF7-3708BA77DBA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportStore.Shared", "Shared\SportStore.Shared\SportStore.Shared.csproj", "{963CA1CE-4C99-4C29-BEF7-3708BA77DBA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
