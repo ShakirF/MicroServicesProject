@@ -28,7 +28,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportStore.Services.PhotoSt
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{0B19F521-AB68-44FB-A6CC-49A958F780B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportStore.Services.Basket", "Services\Basket\SportStore.Services.Basket\SportStore.Services.Basket.csproj", "{ABF264A4-91DD-4CD0-AF1E-69AEAD0CCE30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportStore.Services.Basket", "Services\Basket\SportStore.Services.Basket\SportStore.Services.Basket.csproj", "{ABF264A4-91DD-4CD0-AF1E-69AEAD0CCE30}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{E02C558C-A35E-4273-9353-68F4F0F64938}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportStore.Services.Discount", "Services\Discount\SportStore.Services.Discount\SportStore.Services.Discount.csproj", "{D6D6E257-6F55-4BF6-B372-E0B424A22D92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +60,10 @@ Global
 		{ABF264A4-91DD-4CD0-AF1E-69AEAD0CCE30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABF264A4-91DD-4CD0-AF1E-69AEAD0CCE30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABF264A4-91DD-4CD0-AF1E-69AEAD0CCE30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6D6E257-6F55-4BF6-B372-E0B424A22D92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6D6E257-6F55-4BF6-B372-E0B424A22D92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6D6E257-6F55-4BF6-B372-E0B424A22D92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6D6E257-6F55-4BF6-B372-E0B424A22D92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +77,8 @@ Global
 		{26C25597-F4AF-4A10-B4E7-9C761710CE40} = {AC6CBE7D-FE55-4201-97C8-B58949DE89FE}
 		{0B19F521-AB68-44FB-A6CC-49A958F780B8} = {9334FF41-A995-47F2-9257-D3A449DFC40F}
 		{ABF264A4-91DD-4CD0-AF1E-69AEAD0CCE30} = {0B19F521-AB68-44FB-A6CC-49A958F780B8}
+		{E02C558C-A35E-4273-9353-68F4F0F64938} = {9334FF41-A995-47F2-9257-D3A449DFC40F}
+		{D6D6E257-6F55-4BF6-B372-E0B424A22D92} = {E02C558C-A35E-4273-9353-68F4F0F64938}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B4D2E77F-8A32-45A1-B8DF-2999145C1D06}
