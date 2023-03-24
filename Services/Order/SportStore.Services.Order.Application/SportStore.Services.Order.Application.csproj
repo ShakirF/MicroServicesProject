@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\SportStore.Shared\SportStore.Shared.csproj" />
+    <ProjectReference Include="..\SportStore.Services.Order.Domain\SportStore.Services.Order.Domain.csproj" />
+    <ProjectReference Include="..\SportStore.Services.Order.Infrastructure\SportStore.Services.Order.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
