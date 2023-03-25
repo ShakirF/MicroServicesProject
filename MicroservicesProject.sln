@@ -48,11 +48,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportStore.Services.Order.I
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FakePayment", "FakePayment", "{D72DC738-7490-4790-BC71-5C1C58B4F911}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportStore.Services.FakePayment", "Services\FakePayment\SportStore.Services.FakePayment\SportStore.Services.FakePayment.csproj", "{01237D07-AFE3-4734-8203-896518540FFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportStore.Services.FakePayment", "Services\FakePayment\SportStore.Services.FakePayment\SportStore.Services.FakePayment.csproj", "{01237D07-AFE3-4734-8203-896518540FFA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{9523AB2B-CD25-4370-9498-691A8E34C7F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportStore.Gateway", "SportStore.Gateway\SportStore.Gateway.csproj", "{1781888E-465D-4CDA-952E-D8BB89F620F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportStore.Gateway", "Gateways\SportStore.Gateway\SportStore.Gateway.csproj", "{439B129F-9D44-420E-8416-4D0A784EE9B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -108,10 +108,10 @@ Global
 		{01237D07-AFE3-4734-8203-896518540FFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01237D07-AFE3-4734-8203-896518540FFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01237D07-AFE3-4734-8203-896518540FFA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1781888E-465D-4CDA-952E-D8BB89F620F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1781888E-465D-4CDA-952E-D8BB89F620F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1781888E-465D-4CDA-952E-D8BB89F620F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1781888E-465D-4CDA-952E-D8BB89F620F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{439B129F-9D44-420E-8416-4D0A784EE9B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{439B129F-9D44-420E-8416-4D0A784EE9B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{439B129F-9D44-420E-8416-4D0A784EE9B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{439B129F-9D44-420E-8416-4D0A784EE9B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -135,7 +135,7 @@ Global
 		{5F0DB6A2-F6F3-48C8-AC07-A2727AC435A3} = {8DB32FDB-B88C-4E44-9A3B-EDF69A98D6E2}
 		{D72DC738-7490-4790-BC71-5C1C58B4F911} = {9334FF41-A995-47F2-9257-D3A449DFC40F}
 		{01237D07-AFE3-4734-8203-896518540FFA} = {D72DC738-7490-4790-BC71-5C1C58B4F911}
-		{1781888E-465D-4CDA-952E-D8BB89F620F3} = {9523AB2B-CD25-4370-9498-691A8E34C7F0}
+		{439B129F-9D44-420E-8416-4D0A784EE9B8} = {9523AB2B-CD25-4370-9498-691A8E34C7F0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B4D2E77F-8A32-45A1-B8DF-2999145C1D06}
