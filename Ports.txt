@@ -1,8 +1,9 @@
 Services
--catalogAPI => http://localhost:5011 
-http://localhost:5011/swagger/index.html
+-catalogAPI => http://localhost:5011       (http://localhost:5011/swagger/index.html)
 -photostockAPI => http://localhost:5012
 -basketAPI => http://localhost:5013
 -discountAPI => http://localhost:5014
 -orderAPI => http://localhost:5015
+-fakePaymentAPI => http://localhost:5016
 identityServer => http://localhost:5001
+gateway => http://localhost:5000
