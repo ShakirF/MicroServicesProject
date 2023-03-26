@@ -54,6 +54,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{95
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportStore.Gateway", "Gateways\SportStore.Gateway\SportStore.Gateway.csproj", "{439B129F-9D44-420E-8416-4D0A784EE9B8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontends", "Frontends", "{E209546A-301A-47FD-9601-2FCF75C8E8DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportStore.Web", "Frontends\SportStore.Web\SportStore.Web.csproj", "{4EDA2E1D-07D0-480B-A786-41D0750110A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -112,6 +116,10 @@ Global
 		{439B129F-9D44-420E-8416-4D0A784EE9B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{439B129F-9D44-420E-8416-4D0A784EE9B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{439B129F-9D44-420E-8416-4D0A784EE9B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EDA2E1D-07D0-480B-A786-41D0750110A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EDA2E1D-07D0-480B-A786-41D0750110A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EDA2E1D-07D0-480B-A786-41D0750110A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EDA2E1D-07D0-480B-A786-41D0750110A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,6 +144,7 @@ Global
 		{D72DC738-7490-4790-BC71-5C1C58B4F911} = {9334FF41-A995-47F2-9257-D3A449DFC40F}
 		{01237D07-AFE3-4734-8203-896518540FFA} = {D72DC738-7490-4790-BC71-5C1C58B4F911}
 		{439B129F-9D44-420E-8416-4D0A784EE9B8} = {9523AB2B-CD25-4370-9498-691A8E34C7F0}
+		{4EDA2E1D-07D0-480B-A786-41D0750110A8} = {E209546A-301A-47FD-9601-2FCF75C8E8DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B4D2E77F-8A32-45A1-B8DF-2999145C1D06}
