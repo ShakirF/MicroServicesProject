@@ -7,3 +7,4 @@ Services
 -fakePaymentAPI => http://localhost:5016
 identityServer => http://localhost:5001
 gateway => http://localhost:5000
+web => http://localhost:5010
