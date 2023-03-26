@@ -4,13 +4,16 @@ namespace SportStore.Web.Models;
 
 public class SigninInput
 {
+    [Required]
     [Display(Name = "Email adresiniz")]
     public string Email { get; set; } = null!;
 
-    [Display(Name = "Shifreniz")]
+    [Required]
+    [Display(Name = "Şifrəniz")]
     public string Password { get; set; } = null!;
 
-    [Display(Name = "Meni xatirla")]
+    [Required]
+    [Display(Name = "Məni xatırla")]
     public bool IsRemember { get; set; }
 }
 
