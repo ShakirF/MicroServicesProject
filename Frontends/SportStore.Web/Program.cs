@@ -1,11 +1,33 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using SportStore.Web.Models;
+using SportStore.Web.Services;
+using SportStore.Web.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddHttpContextAccessor();
 builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
+
+var serviceApiSettings = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
+
+builder.Services.AddHttpClient<IIdentityService, IdentityService>();
+
+
+builder.Services.AddHttpClient<IUserService>(opt =>
+{
+    opt.BaseAddress = new Uri(serviceApiSettings.IdentityBaseUri);
+});
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie
+    (CookieAuthenticationDefaults.AuthenticationScheme, opts =>
+    {
+        opts.LoginPath = "/Auth/SingIn";
+        opts.ExpireTimeSpan = TimeSpan.FromDays(60);
+        opts.SlidingExpiration = true;
+        opts.Cookie.Name = "sportstorewebcookie";
+    });
 
 builder.Services.AddControllersWithViews();
 
@@ -20,6 +42,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
