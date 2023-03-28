@@ -1,4 +1,5 @@
-﻿using SportStore.Web.Models.PhotoStocks;
+﻿using SportStore.Shared.Dtos;
+using SportStore.Web.Models.PhotoStocks;
 using SportStore.Web.Services.Interfaces;
 
 namespace SportStore.Web.Services;
@@ -42,8 +43,9 @@ public class PhotoStockService : IPhotoStockService
             return null;
         }
 
-        return await response.Content.ReadFromJsonAsync<PhotoViewModel>();
+        var responseSuccess = await response.Content.ReadFromJsonAsync<Response<PhotoViewModel>>();
 
+        return responseSuccess.Data;
 
 
     }
