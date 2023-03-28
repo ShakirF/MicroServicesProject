@@ -23,5 +23,8 @@ public class ProductCreateInput
     [Display(Name = "Məhsulun kateqoriyası")]
     [Required]
     public string CategoryId { get; set; } = null!;
+
+    [Display(Name = "Məhsulun şəkli")]
+    public IFormFile PhotoFormFile { get; set; }
 }
 
