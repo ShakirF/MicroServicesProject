@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using SportStore.Shared.Services;
 using SportStore.Web.Handler;
+using SportStore.Web.Helpers;
 using SportStore.Web.Models;
 using SportStore.Web.Services;
 using SportStore.Web.Services.Interfaces;
@@ -12,6 +13,7 @@ builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection(
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAccessTokenManagement();
+builder.Services.AddSingleton<PhotoHelper>();
 builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
 
