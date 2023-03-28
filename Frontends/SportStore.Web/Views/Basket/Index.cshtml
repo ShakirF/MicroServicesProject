@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model BasketViewModel
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Səbət</h5>
+
+                @if(Model!=null && Model.BasketItems.Any())
+                {
+                    <table class="table table-striped">
+
+                        <tr>
+                            <th>Məhsul adı</th>
+                            <th>Qiyməti</th>
+                            <th>Əməliyyatlar</th>
+                        </tr>
+
+                        @foreach(var item in Model.BasketItems)
+                        {
+                            <tr>
+                                <td>@item.ProductName</td>
+                                <td>@item.GetCurrentPrice Azn</td>
+                                <td>
+                                    <a class="btn btn-danger" asp-controller="Basket" asp-action="RemoveBasketItem" 
+                                    asp-route-productId="@item.ProductId">Sil</a>
+                                </td>
+
+                            </tr>
+                        }
+                        @if (Model.HasDiscount)
+                        {
+                            <tr>
+                                <td>Endirim</td>
+                                <th colspan="2">@Model.DiscountRate.Value</th>
+                            </tr>
+                        }
+
+                        <tr>
+                            <td>@(Model.HasDiscount?"Endirimli qiymət" : "Ümumi qiymət")</td>
+                            <th colspan="2">@Model.TotalPrice Azn</th>
+                        </tr>
+
+                    </table>
+
+
+
+                }
+                else
+                {
+                    <div class="alert alert-info">Səbət boşdur</div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
