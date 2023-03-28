@@ -12,6 +12,7 @@ public class ProductViewModel
 
     public string? Picture { get; set; }
 
+    public string StockPictureUrl { get; set; }
 
     public DateTime CreatedDate { get; set; }
     public FeatureViewModel? Feature { get; set; }
