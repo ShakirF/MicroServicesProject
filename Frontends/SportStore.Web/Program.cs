@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using SportStore.Shared.Services;
 using SportStore.Web.Extensions;
@@ -30,6 +31,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     });
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddFluentValidationAutoValidation();
 
 var app = builder.Build();
 
