@@ -59,7 +59,7 @@ public class OrderService : IOrderService
             var orderItem = new OrderItemCreateInput
             {
                 ProductId = x.ProductId,
-                Price = x.Price,
+                Price = x.GetCurrentPrice,
                 PictureUrl = "",
                 ProductName = x.ProductName
             };
@@ -73,9 +73,11 @@ public class OrderService : IOrderService
             return new OrderCreatedViewModel() { Error = "Sifariş alınmadı", IsSuccessful = false };
         }
 
-        return await response.Content.ReadFromJsonAsync<OrderCreatedViewModel>();
+        var orderCreatedViewModel = await response.Content.ReadFromJsonAsync<Response<OrderCreatedViewModel>>();
 
-
+        orderCreatedViewModel.IsSuccessful = true;
+        await _basketService.Delete();
+        return orderCreatedViewModel.Data;
     }
 
     public async Task<List<OrderViewModel>> GetOrder()
