@@ -4,6 +4,7 @@ public class BasketDto
 {
     public string UserId { get; set; } = null!;
     public string? DiscountCode { get; set; }
+    public int? DiscountRate { get; set; }
     public List<BasketItemDto> BasketItems { get; set; } = null!;
 
     public decimal TotalPrice
