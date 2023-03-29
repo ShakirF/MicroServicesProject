@@ -25,7 +25,7 @@ namespace SportStore.Web.Controllers
 
         public async Task<IActionResult> Detail(string id)
         {
-            return View(await _catalogService.GetProductById(id));
+            return View(await _catalogService.GetByProductId(id));
         }
 
 
