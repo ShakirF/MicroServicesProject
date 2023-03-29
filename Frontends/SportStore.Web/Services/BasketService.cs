@@ -7,10 +7,12 @@ namespace SportStore.Web.Services;
 public class BasketService : IBasketService
 {
     private readonly HttpClient _httpClient;
+    private readonly IDiscountService _discountService;
 
-    public BasketService(HttpClient httpClient)
+    public BasketService(HttpClient httpClient, IDiscountService discountService)
     {
         this._httpClient = httpClient;
+        this._discountService = discountService;
     }
 
     public async Task AddBasketItem(BasketItemViewModel basketItemViewModel)
@@ -35,14 +37,38 @@ public class BasketService : IBasketService
 
     }
 
-    public Task<bool> ApplyDiscount(string discountCode)
+    public async Task<bool> ApplyDiscount(string discountCode)
     {
-        throw new NotImplementedException();
+        await CancelApplyDiscount();
+        var basket = await Get();
+        if (basket == null)
+        {
+            return false;
+        }
+
+        var hasDiscount = await _discountService.GetDiscount(discountCode);
+        if (hasDiscount == null)
+        {
+            return false;
+        }
+        basket.ApplyDiscount(hasDiscount.Code, hasDiscount.Rate);
+        await SaveOrUpdate(basket);
+        return true;
+
+
     }
 
-    public Task<bool> CancelApplyDiscount()
+    public async Task<bool> CancelApplyDiscount()
     {
-        throw new NotImplementedException();
+        var basket = await Get();
+        if (basket == null || basket.DiscountCode == null)
+        {
+            return false;
+        }
+
+        basket.CancelDiscount();
+        await SaveOrUpdate(basket);
+        return true;
     }
 
     public async Task<bool> Delete()
