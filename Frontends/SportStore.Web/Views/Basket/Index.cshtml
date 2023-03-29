@@ -25,7 +25,7 @@
                         {
                             <tr>
                                 <td>@item.ProductName</td>
-                                <td>@item.GetCurrentPrice Azn</td>
+                                <td>@item.GetCurrentPrice Azn @(Model.HasDiscount ? $"(%{Model.DiscountRate.Value} işləndi)" : "")</td>
                                 <td>
                                     <a class="btn btn-danger" asp-controller="Basket" asp-action="RemoveBasketItem" 
                                     asp-route-productId="@item.ProductId">Sil</a>
@@ -48,6 +48,32 @@
 
                     </table>
 
+                      <form asp-controller="Basket" asp-action="ApplyDiscount">
+                        @if (Model.HasDiscount)
+                        {
+                            <div class="alert alert-success">
+                                "@Model.DiscountCode"endirim kodu işləndi
+                                <a asp-controller="Basket" asp-action="CancelApplyDiscount"> (imtina et)</a>
+                            </div>
+
+                        }
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="DiscountApplyInput.Code">
+                            <button class="btn btn-outline-secondary" type="submit">İstifadə et</button>
+                        </div>
+
+                        @if (TempData["discountStatus"] != null && (bool)TempData["discountStatus"] == false)
+                        {
+                            <div class="text-danger">endirim kodu yanlışdır</div>
+                        }
+                        @if (TempData["discountError"] != null)
+                        {
+                            <div class="text-danger">@TempData["discountError"]</div>
+                        }
+                    </form>
+                    <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Ödəniş məlumatları</a>
+                    <a class="btn btn-warning" asp-controller="Home" asp-action="Index">Məhsullara baxmağa davam et</a>
 
 
                 }
