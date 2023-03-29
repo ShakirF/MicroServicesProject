@@ -79,7 +79,7 @@ public class CatalogService : ICatalogService
         return responseSuccess.Data;
     }
 
-    public async Task<ProductViewModel> GetProductById(string productId)
+    public async Task<ProductViewModel> GetByProductId(string productId)
     {
         var response = await _httpClient.GetAsync($"products/{productId}");
         if (!response.IsSuccessStatusCode)
