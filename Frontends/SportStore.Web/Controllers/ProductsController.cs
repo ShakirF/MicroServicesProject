@@ -49,7 +49,7 @@ public class ProductsController : Controller
 
     public async Task<IActionResult> Update(string id)
     {
-        var product = await _catalogService.GetProductById(id);
+        var product = await _catalogService.GetByProductId(id);
         var categories = await _catalogService.GetAllCategoryAsync();
 
 
