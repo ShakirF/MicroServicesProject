@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SportStore.Web.Models.Baskets;
+using SportStore.Web.Models.Discounts;
 using SportStore.Web.Services.Interfaces;
 
 namespace SportStore.Web.Controllers;
 
+[Authorize]
 public class BasketController : Controller
 {
     private readonly ICatalogService _catalogService;
@@ -32,6 +35,23 @@ public class BasketController : Controller
     public async Task<IActionResult> RemoveBasketItem(string productId)
     {
         await _basketService.RemoveBasketItem(productId);
+        return RedirectToAction(nameof(Index));
+    }
+
+    public async Task<IActionResult> ApplyDiscount(DiscountApplyInput discountApplyInput)
+    {
+        if (!ModelState.IsValid)
+        {
+            TempData["discountError"] = ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage).First();
+        }
+        var discountStatus = await _basketService.ApplyDiscount(discountApplyInput.Code);
+        TempData["discountsStatus"] = discountStatus;
+        return RedirectToAction(nameof(Index));
+    }
+
+    public async Task<IActionResult> CancelApplyDiscount()
+    {
+        await _basketService.CancelApplyDiscount();
         return RedirectToAction(nameof(Index));
     }
 }
