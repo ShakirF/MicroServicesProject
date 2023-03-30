@@ -18,7 +18,7 @@ public class OrderController : Controller
     public async Task<IActionResult> Checkout()
     {
         var basket = await _basketService.Get();
-        ViewBag.baket = basket;
+        ViewBag.basket = basket;
         return View(new CheckoutInfoInput());
     }
 
@@ -30,7 +30,7 @@ public class OrderController : Controller
         {
 
             var basket = await _basketService.Get();
-            ViewBag.baket = basket;
+            ViewBag.basket = basket;
             ViewBag.error = orderStatus.Error;
             return View();
         }
