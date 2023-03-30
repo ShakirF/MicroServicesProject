@@ -35,9 +35,9 @@ public class OrderService : IOrderService
             TotalPrice = basket.TotalPrice
         };
 
-        var responsePayment = _paymentService.ReceivePayment(paymentInfoInput);
+        var responsePayment = await _paymentService.ReceivePayment(paymentInfoInput);
 
-        if (!responsePayment.IsCompletedSuccessfully)
+        if (!responsePayment)
         {
             return new OrderCreatedViewModel() { Error = "Ödəmə alınmadı", IsSuccessful = false };
         }
