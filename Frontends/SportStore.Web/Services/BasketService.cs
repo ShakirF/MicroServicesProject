@@ -21,7 +21,7 @@ public class BasketService : IBasketService
 
         if (basket != null)
         {
-            if (basket.BasketItems.Any(x => x.ProductId == basketItemViewModel.ProductId))
+            if (!basket.BasketItems.Any(x => x.ProductId == basketItemViewModel.ProductId))
             {
                 basket.BasketItems.Add(basketItemViewModel);
             }
@@ -29,7 +29,6 @@ public class BasketService : IBasketService
         else
         {
             basket = new BasketViewModel();
-            basketItemViewModel.Quantity += 1;
             basket.BasketItems.Add(basketItemViewModel);
         }
 
@@ -83,7 +82,7 @@ public class BasketService : IBasketService
     {
         var response = await _httpClient.GetAsync("baskets");
 
-        if (response.IsSuccessStatusCode)
+        if (!response.IsSuccessStatusCode)
         {
             return null;
         }
