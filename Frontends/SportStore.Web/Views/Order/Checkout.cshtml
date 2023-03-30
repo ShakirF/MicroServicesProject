@@ -59,7 +59,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Ödəniş icmalı</h5>
                     <table class="table table-striped">
-                        @foreach (var item in ViewBag.basket.BasketItems as List<BasketItemViewModel>)
+                        @foreach (var item in ViewBag.basket?.BasketItems as List<BasketItemViewModel>)
                         {
                             <tr>
                                 <td>@item.ProductName</td>
@@ -68,8 +68,8 @@
                         }
 
                         <tr>
-                            <td>@(ViewBag.basket.HasDiscount ? "endirimli ümumi məbləğ" :"ümumi məbləğ")</td>
-                            <td>@ViewBag.basket.TotalPrice Azn</td>
+                            <td>@(ViewBag.basket?.HasDiscount ? "endirimli ümumi məbləğ" :"ümumi məbləğ")</td>
+                            <td>@ViewBag.basket?.TotalPrice Azn</td>
                         </tr>
                     </table>
 
