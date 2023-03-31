@@ -86,9 +86,56 @@ public class OrderService : IOrderService
         return response.Data;
     }
 
-    public Task SuspendOrder(CheckoutInfoInput checkoutInfoInput)
+    public async Task<OrderSuspendViewModel> SuspendOrder(CheckoutInfoInput checkoutInfoInput)
     {
-        throw new NotImplementedException();
+        var basket = await _basketService.Get();
+
+        var orderCreateInput = new OrderCreateInput()
+        {
+            BuyerId = _sharedIdentityService.GetUserId,
+            Address = new AddressCreateInput
+            {
+                Province = checkoutInfoInput.Province,
+                District = checkoutInfoInput.District,
+                Street = checkoutInfoInput.Street,
+                ZipCode = checkoutInfoInput.ZipCode,
+                Line = checkoutInfoInput.Line
+            }
+        };
+        basket.BasketItems.ForEach(x =>
+        {
+            var orderItem = new OrderItemCreateInput
+            {
+                ProductId = x.ProductId,
+                Price = x.GetCurrentPrice,
+                PictureUrl = "",
+                ProductName = x.ProductName
+            };
+            orderCreateInput.OrderItems.Add(orderItem);
+        });
+
+
+
+        var paymentInfoInput = new PaymentInfoInput()
+        {
+            CardName = checkoutInfoInput.CardName,
+            CardNumber = checkoutInfoInput.CardNumber,
+            Expiration = checkoutInfoInput.Expiration,
+            CVV = checkoutInfoInput.CVV,
+            TotalPrice = basket.TotalPrice,
+            Order = orderCreateInput
+        };
+
+        var responsePayment = await _paymentService.ReceivePayment(paymentInfoInput);
+
+        if (!responsePayment)
+        {
+            return new OrderSuspendViewModel() { Error = "Ödəmə alınmadı", IsSuccessful = false };
+        }
+
+        await _basketService.Delete();
+        return new OrderSuspendViewModel() { IsSuccessful = true };
+
     }
 }
 
