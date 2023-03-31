@@ -3,8 +3,8 @@
 public class BasketItemViewModel
 {
     public int Quantity { get; set; }
-    public string ProductId { get; set; } = null!;
-    public string ProductName { get; set; } = null!;
+    public string ProductId { get; set; }
+    public string ProductName { get; set; }
     public decimal Price { get; set; }
 
     private decimal? DiscountAppliedPrice;
