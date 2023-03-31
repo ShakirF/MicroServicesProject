@@ -1,4 +1,6 @@
-﻿namespace SportStore.Web.Models.FakePayments;
+﻿using SportStore.Web.Models.Orders;
+
+namespace SportStore.Web.Models.FakePayments;
 
 public class PaymentInfoInput
 {
@@ -7,5 +9,6 @@ public class PaymentInfoInput
     public string Expiration { get; set; } = null!;
     public string CVV { get; set; } = null!;
     public decimal TotalPrice { get; set; }
+    public OrderCreateInput Order { get; set; }
 }
 
