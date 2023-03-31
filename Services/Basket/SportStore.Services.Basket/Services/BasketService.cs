@@ -24,7 +24,7 @@ public class BasketService : IBasketService
         var existBasket = await _redisService.GetDB().StringGetAsync(userId);
         if (String.IsNullOrEmpty(existBasket))
         {
-            return Response<BasketDto>.Fail("BAsket not found", 404);
+            return Response<BasketDto>.Fail("Basket not found", 404);
         }
         return Response<BasketDto>.Success(JsonSerializer.Deserialize<BasketDto>(existBasket), 200);
     }
