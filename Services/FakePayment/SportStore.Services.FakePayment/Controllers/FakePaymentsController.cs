@@ -28,6 +28,7 @@ public class FakePaymentsController : CustomBaseController
         createOrderMessageCommand.Province = paymentDto.Order.Address.Province;
         createOrderMessageCommand.District = paymentDto.Order.Address.District;
         createOrderMessageCommand.Street = paymentDto.Order.Address.Street;
+        createOrderMessageCommand.ZipCode = paymentDto.Order.Address.ZipCode;
         createOrderMessageCommand.Line = paymentDto.Order.Address.Line;
 
         paymentDto.Order.OrderItems.ForEach(x =>
@@ -36,6 +37,7 @@ public class FakePaymentsController : CustomBaseController
             {
                 PictureUrl = x.PictureUrl,
                 Price = x.Price,
+                ProductId = x.ProductId,
                 ProductName = x.ProductName
             });
         });
