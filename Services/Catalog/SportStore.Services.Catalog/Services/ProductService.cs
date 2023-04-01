@@ -4,6 +4,8 @@ using SportStore.Services.Catalog.Dtos;
 using SportStore.Services.Catalog.Models;
 using SportStore.Services.Catalog.Settings;
 using SportStore.Shared.Dtos;
+using SportStore.Shared.Messages;
+using Mass = MassTransit;
 
 namespace SportStore.Services.Catalog.Services;
 
@@ -12,14 +14,16 @@ public class ProductService : IProductService
     private readonly IMongoCollection<Product> _productCollection;
     private readonly IMongoCollection<Category> _categoryCollection;
     private readonly IMapper _mapper;
+    private readonly Mass.IPublishEndpoint _publishEndpoint;
 
-    public ProductService(IMapper mapper, IDatabaseSettings databaseSettings)
+    public ProductService(IMapper mapper, IDatabaseSettings databaseSettings, Mass.IPublishEndpoint publishEndpoint)
     {
         var client = new MongoClient(databaseSettings.ConnectionString);
         var database = client.GetDatabase(databaseSettings.DatabaseName);
         _productCollection = database.GetCollection<Product>(databaseSettings.ProductColletionName);
         _categoryCollection = database.GetCollection<Category>(databaseSettings.CategoryCollectionName);
         _mapper = mapper;
+        _publishEndpoint = publishEndpoint;
     }
 
     public async Task<Response<List<ProductDto>>> GetAllAsync()
@@ -93,6 +97,14 @@ public class ProductService : IProductService
         {
             return Response<NoContent>.Fail("Product not found", 404);
         }
+
+        await _publishEndpoint.Publish<ProductNameChangedEvent>(new ProductNameChangedEvent
+        {
+            ProductId = updateProduct.Id,
+            UpdatedName = productUpdateDto.Name
+        });
+
+
         return Response<NoContent>.Success(204);
     }
 
