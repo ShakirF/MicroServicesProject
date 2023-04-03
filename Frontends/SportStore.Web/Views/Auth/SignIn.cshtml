@@ -1,37 +1,90 @@
 ﻿
 @{
     ViewData["Title"] = "SignIn";
+    Layout = "~/Views/Shared/_LayoutTemplate.cshtml";
 }
 @model SportStore.Web.Models.SigninInput
 
-<div class="row">
-    <div class="col-md-4 offset-md-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Üzv olmaq üçün Giriş</h5>
-                    <div class="text-danger" asp-validation-summary="ModelOnly" ></div>
- <form asp-controller="Auth" asp-action="SignIn" method="post">
-  <div class="mb-3">
-    <label asp-for="Email" for="exampleInputEmail1" class="form-label"></label>
-    <input type="email" value="shakirfarajullayev@gmail.com" asp-for="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <span class="text-danger" asp-validation-for="Email"></span>
-  </div>
-  <div class="mb-3">
-    <label asp-for="Password" for="exampleInputPassword1" class="form-label"></label>
-    <input type="password" value="Password12*" asp-for="Password" class="form-control" id="exampleInputPassword1">
-    <span class="text-danger" asp-validation-for="Password"></span>
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" asp-for="IsRemember" class="form-check-input" id="exampleCheck1">
-    <label asp-for="IsRemember" class="form-check-label" for="exampleCheck1"></label>
-  </div>
-  <button type="submit" class="btn btn-primary">Giriş</button>
-</form>
-            </div>
-        </div>
-    </div>
-</div>
 
+<div class="account-area page-content mb-50">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="page-title">
+                                        <h2>Login - Register</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12 mb-30">
+                                    <!-- Login Form s-->
+                                    <form asp-controller="Auth" asp-action="SignIn" method="post" class="login-form">
 
+                                        <div id="login-form">
+                                            <h4 class="login-title">Login</h4>
 
+                                            <div class="row">
+                                                <div class="col-md-12 col-12 mb-20">
+                                                    <label asp-for="Email"> Email Address*</label>
+                                                    <input class="mb-0"  asp-for="Email" type="email" placeholder="Email Address">
+                                                </div>
+                                                <div class="col-12 mb-20">
+                                                    <label asp-for="Password" >Password</label>
+                                                    <input class="mb-0" asp-for="Password" type="password" placeholder="Password">
+                                                    <span class="text-danger" asp-validation-for="Password"></span>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <button class="register-button mt-0">Login</button>
+                                                    <div class="check-box d-inline-block ms-2 mt-10">
+                                                        <input type="checkbox" asp-for="IsRemember" id="remember_me">
+                                                        <label asp-for="IsRemember" for="remember_me">Remember me</label>
+                                                    </div>
+                                                </div>
 
+                                                <div class="col-md-4 mt-10 text-start text-md-end">
+                                                    <a href="#"> Forgotten pasward?</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                              @*  <div class="col-md-6 col-xs-12">
+                                    <form action="#" class="login-form">
+
+                                        <div id="register-form">
+                                            <h4 class="login-title">Register</h4>
+
+                                            <div class="row">
+                                                <div class="col-lg-6 col-12 mb-20">
+                                                    <label>First Name</label>
+                                                    <input class="mb-0" type="text" placeholder="First Name">
+                                                </div>
+                                                <div class="col-lg-6 col-12 mb-20">
+                                                    <label>Last Name</label>
+                                                    <input class="mb-0" type="text" placeholder="Last Name">
+                                                </div>
+                                                <div class="col-md-12 mb-20">
+                                                    <label>Email Address*</label>
+                                                    <input class="mb-0" type="email" placeholder="Email Address">
+                                                </div>
+                                                <div class="col-lg-6 mb-20">
+                                                    <label>Password</label>
+                                                    <input class="mb-0" type="password" placeholder="Password">
+                                                </div>
+                                                <div class="col-lg-6 mb-20">
+                                                    <label>Confirm Password</label>
+                                                    <input class="mb-0" type="password" placeholder="Confirm Password">
+                                                </div>
+                                                <div class="col-12">
+                                                    <button class="register-button mt-0">Register</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>*@
+                            </div>
+                        </div>
+                    </div>
