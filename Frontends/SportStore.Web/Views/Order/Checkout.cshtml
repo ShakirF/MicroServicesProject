@@ -10,7 +10,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Adres mməlumatları</h5>
+                    <h5 class="card-title"> BillingAddress</h5>
 
                     <div class="mb-3">
                         <label class="form-label" asp-for="Province"></label>
@@ -33,7 +33,7 @@
                         <input asp-for="ZipCode" class="form-control">
                     </div>
 
-                    <h5 class="card-title">Ödəniş məlumatları</h5>
+                    <h5 class="card-title">Billing Payment</h5>
                     <div class="mb-3">
                         <label class="form-label" asp-for="CardName"></label>
                         <input asp-for="CardName" class="form-control">
@@ -57,7 +57,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Ödəniş icmalı</h5>
+                    <h5 class="card-title">Payment Information</h5>
                     <table class="table table-striped">
                         @foreach (var item in ViewBag.basket.BasketItems as List<BasketItemViewModel>)
                         {
@@ -73,10 +73,10 @@
                         </tr>
                     </table>
 
-                    <button type="submit" class="btn btn-success">Ödənişi bitir</button>
+                    <button type="submit" class="btn btn-success">Place Order</button>
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
 </form>
 
