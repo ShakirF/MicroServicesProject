@@ -11,7 +11,7 @@
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Ödəniş arxivi</h5>
+                <h5 class="card-title">Payment Information</h5>
 
                 @if (Model.Any())
                 {
@@ -19,9 +19,9 @@
                     <table class="table table-striped table-bordered">
 
                         <tr>
-                            <th>Sifariş(ödəniş) no</th>
-                            <th>Satış tarixi</th>
-                            <th>Ətraflı</th>
+                            <th>Order no</th>
+                            <th>Date Of Sale</th>
+                            <th>Detail</th>
                         </tr>
                         @foreach (var item in Model)
                         {
@@ -33,14 +33,16 @@
                                     <table class="table table-striped">
 
                                         <tr>
-                                            <th>Məhsulun adı</th>
-                                            <th>Məhsulun qiyməti</th>
+                                            <th>Product</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
                                         </tr>
                                         @foreach (var orderItem in item.OrderItems)
                                         {
                                             <tr>
                                                 <td>@orderItem.ProductName</td>
-                                                <td>@orderItem.Price Azn</td>
+                                                <td>@orderItem.Price ₼</td>
+                                                <td>@orderItem.Quantity</td>
                                             </tr>
                                         }
                                     </table>
@@ -52,7 +54,7 @@
                 }
                 else
                 {
-                    <div class="alert alert-info">Satış olunduğu heçbir məhsul tapılmadı.</div>
+                    <div class="alert alert-info">No products were found because they are not for sale.</div>
                 }
             </div>
         </div>
