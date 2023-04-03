@@ -1,30 +1,155 @@
 ﻿
 @{
     ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_LayoutTemplate.cshtml";
 }
+
 @model ProductViewModel
 
-<div class="row">
-    <div class="col-md-9">
-        <div class="card">
-            <img src="@Model.StockPictureUrl" class="card-img-top"/>
-            <div class="card-body">
-                <h5 class="card-title">@Model.Name</h5>
-                 <div class="badge bg-primary">Kateqoriya : @Model.Category.Name</div>
-                <p class="card-text">@Model.Description</p>
-            </div>
-        </div>
-    </div>
-   <div class="col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Qiymət : @Model.Price Azn</h4>
-                <div class="d-grid">
-                    <a asp-controller="Basket" asp-action="AddBasketItem" asp-route-productId="@Model.Id" class="btn btn-primary">Səbətə at</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<section class="single-product-page-content">
+                        <div class="container">
+                            <div class="row">
 
+                                <div class="col-lg-9 col-md-12">
+                                    <div class="row">
+                                        <div class="col-lg-5 col-md-7">
+
+                                            <div class="single-product-page-image-gallery">
+                                                <!-- product quickview image gallery -->
+                                                <!--Modal Tab Content Start-->
+                                                <div class="tab-content product-details-large  sale-badge new-badge">
+                                                    <div class="tab-pane fade show active" id="single-slide1"
+                                                        role="tabpanel" aria-labelledby="single-slide-tab-1">
+                                                        <!--Single Product Image Start-->
+                                                        <div class="single-product-img img-full ">
+                                                            <img width="458" height="458" src="@Model.StockPictureUrl"
+                                                                class="img-fluid" alt="">
+                                                            <a href="@Model.StockPictureUrl"
+                                                                class="big-image-popup"><i
+                                                                    class="fa fa-search-plus"></i></a>
+                                                        </div>
+                                                      
+                                                    </div>
+                                                </div>
+                                                <!--Modal Content End-->
+                                                <!--Modal Tab Menu Start-->
+
+                                             
+                                                <!--Modal Tab Menu End-->
+                                                <!-- end of product quickview image gallery -->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7 col-md-5">
+                                            <!-- product quick view description -->
+                                            <div class="product-options">
+                                                <h2 class="product-title">@Model.Name</h2>
+                                                
+                                                <h2 class="product-price">@Model.Name</h2>
+                                                <p class="product-description">@Model.ShortDescription</p>
+
+                                                
+                                                <div class="social-share-buttons">
+                                                    <ul>
+                                                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i>
+                                                                Tweet</a></li>
+                                                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i>
+                                                                Share</a></li>
+                                                        <li><a class="google-plus" href="#"><i
+                                                                    class="fa fa-google-plus"></i>
+                                                                Google+</a></li>
+                                                        <li><a class="pinterest" href="#"><i
+                                                                    class="fa fa-pinterest"></i>
+                                                                Pinterest</a></li>
+                                                    </ul>
+                                                </div>
+                                               
+                                                <p class="quantity">Quantity:
+
+                                                    <span class="pro-qty counter"><input type="text" value="1"
+                                                            class="mr-5"></span>
+
+                                                </p>
+
+
+                                                <a asp-controller="Basket" asp-action="AddBasketItem" asp-route-productId ="@Model.Id" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>
+                                                    Add to Cart</a>
+                                            </div>
+                                            <!-- end ofproduct quick view description -->
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="product-description-tab-container section-padding">
+                                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                                            href="#more-info" role="tab" aria-selected="true">MORE
+                                                            INFO</a>
+                                                    </li>
+                                                    
+                                                    
+                                                </ul>
+                                                <div class="tab-content" id="myTabContent">
+                                                    <div class="tab-pane fade show active" id="more-info"
+                                                        role="tabpanel" aria-labelledby="home-tab">
+                                                        <p>@Model.Description</p>
+                                                    </div>
+                                                 
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- related horizontal product slider -->
+                                 
+                                    <!-- end of related horizontal product slider -->
+                                </div>
+
+                                <div class="col-lg-3 col-md-4">
+                                    <!-- ======  Single product sidebar  ====== -->
+
+                                    <div class="single-product-page-sidebar">
+                                        <!-- vertical auto slider container -->
+                                     
+                                        <!-- end of vertical auto slider container -->
+
+
+                                        <!-- homepage sidebar banner -->
+                                        <div class="sidebar">
+                                            <div class="homepage-sidebar-banner-container mb-50">
+                                                <a href="javascript:void()">
+                                                    <img width="269" height="389" src="~/assets/images/banners/banner-left.webp" class="img-fluid"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- end of homepage sidebar banner -->
+
+                                        <!-- tag container -->
+                                        <div class="sidebar">
+                                            <h2 class="block-title">TAGS</h2>
+                                            <div class="tag-container">
+                                                <ul>
+                                                    <li><a href="shop-left-sidebar-wide.html">new</a> </li>
+                                                    <li><a href="shop-left-sidebar-wide.html">bags</a> </li>
+                                                    <li><a href="shop-left-sidebar-wide.html">new</a> </li>
+                                                    <li><a href="shop-left-sidebar-wide.html">kids</a> </li>
+                                                    <li><a href="shop-left-sidebar-wide.html">fashion</a> </li>
+                                                    <li><a href="shop-left-sidebar-wide.html">Accessories</a> </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- end of tag container -->
+
+
+                                    </div>
+
+                                    <!-- ====  End of Single product sidebar  ==== -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
