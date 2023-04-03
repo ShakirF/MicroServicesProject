@@ -22,13 +22,13 @@ builder.Services.AddScoped<ClientCredentialTokenHandler>();
 builder.Services.AddHttpClientServices(builder.Configuration);
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie
-    (CookieAuthenticationDefaults.AuthenticationScheme, opts =>
-    {
-        opts.LoginPath = "/Auth/SingIn";
-        opts.ExpireTimeSpan = TimeSpan.FromDays(60);
-        opts.SlidingExpiration = true;
-        opts.Cookie.Name = "sportstorewebcookie";
-    });
+	(CookieAuthenticationDefaults.AuthenticationScheme, opts =>
+	{
+		opts.LoginPath = "/Auth/SignIn";
+		opts.ExpireTimeSpan = TimeSpan.FromDays(60);
+		opts.SlidingExpiration = true;
+		opts.Cookie.Name = "sportstorewebcookie";
+	});
 
 builder.Services.AddControllersWithViews();
 
@@ -39,7 +39,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
+	app.UseExceptionHandler("/Home/Error");
 }
 app.UseStaticFiles();
 
@@ -49,7 +49,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+	name: "default",
+	pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
