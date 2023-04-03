@@ -61,7 +61,7 @@ public class BasketController : Controller
 	}
 
 	[HttpPost]
-	public async Task<IActionResult> QtyPlus(QtyData qtyData)
+	public async Task<IActionResult> QuantityUpdate(QtyData qtyData)
 	{
 		var product = await _catalogService.GetByProductId(qtyData.productId);
 		var basketItem = new BasketItemViewModel
