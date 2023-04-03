@@ -22,12 +22,12 @@ public class Order : Entity, IAggregateRoot
 		Address = address;
 	}
 
-	public void AddOrderItem(string productId, string productName, decimal price, string pictureUrl)
+	public void AddOrderItem(string productId, string productName, decimal price, string pictureUrl, int quantity)
 	{
 		var existProduct = _orderItems.Any(x => x.ProductId == productId);
 		if (!existProduct)
 		{
-			var newOrderItem = new OrderItem(productId, productName, pictureUrl, price);
+			var newOrderItem = new OrderItem(productId, productName, pictureUrl, price, quantity);
 			_orderItems.Add(newOrderItem);
 		}
 	}
