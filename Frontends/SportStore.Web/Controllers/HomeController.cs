@@ -20,13 +20,14 @@ namespace SportStore.Web.Controllers
 
 		public async Task<IActionResult> Index2()
 		{
-			return View(await _catalogService.GetAllProductAsync());
+			return View(await _catalogService.GetAllProductAsync(""));
 		}
 
-		public async Task<IActionResult> Index()
+		public async Task<IActionResult> Index(string categoryId)
 		{
-			var response = await _catalogService.GetAllProductAsync();
+			var response = await _catalogService.GetAllProductAsync(categoryId);
 			var categories = await _catalogService.GetAllCategoryAsync();
+
 			ViewBag.Categories = categories;
 			return View(response);
 		}
