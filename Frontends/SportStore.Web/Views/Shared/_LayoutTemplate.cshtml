@@ -64,11 +64,11 @@
 												</div>
 											</div>
 											<div class="currency-changer">
-												<a href="#" id="changeCurrency"><span id="currencyName">USD <i
+												<a href="#" id="changeCurrency"><span id="currencyName">AZN <i
 															class="fa fa-caret-down"></i></span></a>
 												<div class="language-currency-list hidden" id="currencyList">
 													<ul>
-														<li><a href="#">USD</a></li>
+														<li><a href="#">AZN</a></li>
 														<li><a href="#">EURO</a></li>
 													</ul>
 												</div>
@@ -86,7 +86,7 @@
 											
 											<ul>
 												
-												<li><a href="checkout.html">Check Out</a> <span class="separator">|</span></li>	
+												<li><a asp-controller="Order" asp-action="Checkout">Check Out</a> <span class="separator">|</span></li>	
 												<li><a asp-controller="Auth" asp-action="LogOut">Log Out</a> <span class="separator">|</span></li>
 												<li> <a asp-controller="User" asp-action="Index"> @User.Identity.Name </a></li>
 											
@@ -172,8 +172,8 @@
 														<li ><a href="#">Pages</a></li>
 														
 														
-														<li><a href="about.html">About</a></li>
-														<li><a href="contact.html">Contact</a></li>
+														<li><a asp-controller="About" asp-action="About">About</a></li>
+														<li><a asp-controller="Contact" asp-action="Contact">Contact</a></li>
 													</ul>
 												</nav>
 
