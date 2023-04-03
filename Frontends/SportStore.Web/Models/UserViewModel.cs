@@ -2,16 +2,16 @@
 
 public class UserViewModel
 {
-    public string Id { get; set; }
-    public string UserName { get; set; }
-    public string Email { get; set; }
-    public string City { get; set; }
+	public string Id { get; set; } = null!;
+	public string UserName { get; set; } = null!;
+	public string Email { get; set; } = null!;
+	public string City { get; set; } = null!;
 
-    public IEnumerable<string> GetUserProps()
-    {
-        yield return UserName;
-        yield return Email;
-        yield return City;
-    }
+	public IEnumerable<string> GetUserProps()
+	{
+		yield return UserName;
+		yield return Email;
+		yield return City;
+	}
 }
 
