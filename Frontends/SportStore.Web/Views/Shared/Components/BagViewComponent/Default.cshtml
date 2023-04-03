@@ -25,11 +25,11 @@
 															<img width="250" height="250" src="@item.StockPictureUrl" class="img-fluid" alt="">
 														</div>
 														<div class="cart-float-single-item-desc">
-															<p class="product-title"><span class="count">1x</span> <a
+															<p class="product-title"><span class="count">@item.Quantity x</span> <a
 																	asp-controller="Home" asp-action="Detail" asp-route-id="@item.ProductId"> @item.ProductName
 																	</a></p>
 															
-															<p class="price">@item.Price Azn</p>
+															<p class="price">@item.Price ₼</p>
 														</div>
 													</div>
 			                                        }
@@ -39,10 +39,10 @@
 												<div class="cart-calculation d-flex">
 													<div class="calculation-details">
 														
-														<p class="total">Total <span>@Model.TotalPrice</span></p>
+														<p class="total">Total <span>@Model.TotalPrice ₼</span></p>
 													</div>
 													<div class="checkout-button">
-														<a href="#">Checkout</a>
+														<a asp-controller="Order" asp-action="Checkout">Checkout</a>
 													</div>
 												</div>
 											</div>
