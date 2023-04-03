@@ -1,0 +1,50 @@
+﻿@model BasketViewModel
+<div class="shopping-cart float-lg-end d-flex justify-content-start" id="shopping-cart">
+											<div class="cart-icon">
+												<a <a asp-controller="Basket" asp-action="Index"><img width="39" height="27" src="~/assets/images/icon-topcart.webp" class="img-fluid" alt=""></a>
+											</div>
+											<div class="cart-content">
+												<h2><a asp-controller="Basket" asp-action="Index">Shopping Cart
+						@if(Model.BasketItems.Count() == 0)
+						{
+								 <span><span id="cartStatus">(Empty)</span></span>
+						}
+					
+													</a></h2>
+											</div>
+
+											<div class="cart-floating-box" id="cart-floating-box">
+												<div class="cart-items">
+			                                      @foreach (var item in Model.BasketItems)
+			                                         {
+														
+						<div class="cart-float-single-item d-flex">
+														<span class="remove-item"><a asp-controller="Basket" asp-action="RemoveHomeBasketItem" 
+                                    asp-route-productId="@item.ProductId"><i class="fa fa-trash"></i></a></span>
+														<div class="cart-float-single-item-image">
+															<img width="250" height="250" src="@item.StockPictureUrl" class="img-fluid" alt="">
+														</div>
+														<div class="cart-float-single-item-desc">
+															<p class="product-title"><span class="count">1x</span> <a
+																	asp-controller="Home" asp-action="Detail" asp-route-id="@item.ProductId"> @item.ProductName
+																	</a></p>
+															
+															<p class="price">@item.Price Azn</p>
+														</div>
+													</div>
+			                                        }
+		
+											
+												</div>
+												<div class="cart-calculation d-flex">
+													<div class="calculation-details">
+														
+														<p class="total">Total <span>@Model.TotalPrice</span></p>
+													</div>
+													<div class="checkout-button">
+														<a href="#">Checkout</a>
+													</div>
+												</div>
+											</div>
+											<!-- end of shopping cart -->
+										</div>
