@@ -10,7 +10,7 @@
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Məhsul yeniləmə</h5>
+                <h5 class="card-title">Update Product</h5>
                 <form asp-controller="Products" asp-action="Update" method="post" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly"></div>    
                 <input type="hidden" asp-for="Id" />
@@ -50,7 +50,7 @@
                     <input type="file" asp-for="PhotoFormFile" class="form-control" />
                 </div>
 
-                <button type="submit" class="btn btn-primary">Məhsulu yenilə</button>
+                <button type="submit" class="btn btn-primary">Update Product</button>
                 </form>
             </div>
 
