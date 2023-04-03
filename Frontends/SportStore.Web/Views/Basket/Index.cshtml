@@ -44,8 +44,8 @@
                                                         <td class="pro-title"><a asp-controller="Home" asp-action="Detail" asp-route-id="@item.ProductId"
                                                                 >@item.ProductName</a></td>
                                                         <td class="pro-price">
-                                                            <span id="current-price">@item.GetCurrentPrice</span>
-                                                            <span>Azn  @(Model.HasDiscount ? $"(%{Model.DiscountRate.Value} used)" : "")</span>
+                                                            <span class="current-price">@item.GetCurrentPrice</span><span>₼  @(Model.HasDiscount ? $"(%{Model.DiscountRate.Value} used)" : "")</span>
+                                                            
                                                             </td>
                                                         <td class="pro-quantity">
                                                             <span class="pro-qty-cart counter">
@@ -109,7 +109,10 @@
                                                 <div class="cart-summary-wrap">
                                                     <h4>Cart Summary</h4>
                                                   
-                                                    <h2>@(Model.HasDiscount?"Discount Grant Total" : "Grant Total")  <span>@Model.TotalPrice Azn</span></h2>
+                                                    <h2>@(Model.HasDiscount?"Discount Grant Total" : "Grant Total") 
+                                                        <span> ₼ </span>
+                                                        <span id="total-price">@Model.TotalPrice</span>
+                                                        </h2>
                                                 </div>
                                                 <div class="cart-summary-button">
                                                    
