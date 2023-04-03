@@ -5,9 +5,9 @@ namespace SportStore.Web.Validators;
 
 public class DiscountApplyInputValidator : AbstractValidator<DiscountApplyInput>
 {
-    public DiscountApplyInputValidator()
-    {
-        RuleFor(x => x.Code).NotEmpty().WithMessage("endirim bos olmamalidir");
-    }
+	public DiscountApplyInputValidator()
+	{
+		RuleFor(x => x.Code).NotEmpty().WithMessage("discount should not be empty");
+	}
 }
 
