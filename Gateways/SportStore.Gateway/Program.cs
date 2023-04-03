@@ -1,10 +1,9 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using SportStore.Gateway.DelegateHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddHttpClient<TokenExcangeDelegateHandler>();
+//builder.Services.AddHttpClient<TokenExchangeDelegateHandler>();
 
 builder.Configuration.AddJsonFile($"configuration.{builder.Environment.EnvironmentName.ToString().ToLower()}.json");
 
@@ -15,7 +14,7 @@ builder.Services.AddAuthentication().AddJwtBearer("GatewayAuthenticationScheme",
 	options.RequireHttpsMetadata = false;
 });
 
-builder.Services.AddOcelot().AddDelegatingHandler<TokenExcangeDelegateHandler>();
+builder.Services.AddOcelot();/*.AddDelegatingHandler<TokenExchangeDelegateHandler>();*/
 
 
 var app = builder.Build();
