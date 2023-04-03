@@ -1,0 +1,19 @@
+﻿@model List<CategoryViewModel>
+
+<div class="header-search-bar">
+											<div class="input-group">
+												<select name="categoryName" id="categoryName">
+													<option value="">Categories</option>
+			@foreach(var item in Model)
+			{
+				<option value="01">@item.Name</option>
+			}
+			
+											
+												</select>
+												<div class="input-group-append">
+													<input type="search" name="search">
+													<button type="submit"><i class="fa fa-search"></i></button>
+												</div>
+											</div>
+										</div>
