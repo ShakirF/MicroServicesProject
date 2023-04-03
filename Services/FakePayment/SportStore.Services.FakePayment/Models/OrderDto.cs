@@ -2,29 +2,29 @@
 
 public class OrderDto
 {
-    public OrderDto()
-    {
-        OrderItems = new List<OrderItemDto>();
-    }
-    public string BuyerId { get; set; } = null!;
+	public OrderDto()
+	{
+		OrderItems = new List<OrderItemDto>();
+	}
+	public string BuyerId { get; set; } = null!;
 
-    public List<OrderItemDto> OrderItems { get; set; }
+	public List<OrderItemDto> OrderItems { get; set; }
 
-    public AddressDto Address { get; set; } = null!;
+	public AddressDto Address { get; set; } = null!;
 }
 
 public class OrderItemDto
 {
-    public string ProductId { get; set; } = null!;
-    public string ProductName { get; set; } = null!;
-    public string? PictureUrl { get; set; }
-    public Decimal Price { get; set; }
+	public string ProductId { get; set; } = null!;
+	public string ProductName { get; set; } = null!;
+	public string PictureUrl { get; set; } = null!;
+	public Decimal Price { get; set; }
 }
 public class AddressDto
 {
-    public string Province { get; set; } = null!;
-    public string District { get; set; } = null!;
-    public string Street { get; set; } = null!;
-    public string ZipCode { get; set; } = null!;
-    public string Line { get; set; } = null!;
+	public string Province { get; set; } = null!;
+	public string District { get; set; } = null!;
+	public string Street { get; set; } = null!;
+	public string ZipCode { get; set; } = null!;
+	public string Line { get; set; } = null!;
 }
