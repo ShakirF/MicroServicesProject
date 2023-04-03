@@ -12,7 +12,7 @@ using SportStore.Services.Order.Infrastructure;
 namespace SportStore.Services.Order.Infrastructure.Migrations
 {
     [DbContext(typeof(OrderDbContext))]
-    [Migration("20230324195058_initial")]
+    [Migration("20230403213816_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -70,6 +70,9 @@ namespace SportStore.Services.Order.Infrastructure.Migrations
                     b.Property<string>("ProductName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
