@@ -1,41 +1,390 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    var count = 0;
+    Layout = "~/Views/Shared/_LayoutTemplate.cshtml";
 }
+
 @model List<ProductViewModel>
-<h2>Məhsullar</h2>
-<hr />
 
-@if(Model.Any())
-{
-    @foreach(var item in Model)
-    {
-        count++;
-        if(count == 1 || (count % 3 == 1))
-        {
-            @Html.Raw("<div class='row row-cols-1 row-cols-md-3 g-4 mb-2'>")
-        }
+<div class="homepage-content">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-12 mb-50">
+									<div class="row">
+										<div class="col-lg-3 col-md-4">
+											<!-- Header category list -->
+											<div class="hero-side-category">
 
-          <div class="col">
-          <div class="card">
-          <img src="@item.StockPictureUrl" class="card-img-top" alt="...">
-          <div class="card-body">
-        <h5 class="card-title">@item.Name</h5>
-         <div class="badge bg-primary">Kateqoriya : @item.Category.Name</div>
-        <p class="card-text">@item.ShortDescription</p>
-        <h4 class="text-primary">@item.Price Azn </h4>
-        <div>
-            <a asp-controller="Home" asp-action="Detail" class="btn btn-success" asp-route-id="@item.Id"> Daha ətraflı</a>
-        </div>
-        
-          </div>
-         </div>
-         </div>
+												<!-- Category Toggle Wrap -->
+												<div class="category-toggle-wrap">
+													<!-- Category Toggle -->
+													<button class="category-toggle">Categories <i class="ti-menu"></i></button>
+												</div>
 
-        if (count % 3 == 0)
-        {
-            @Html.Raw("</div>")
-        }
+												<!-- Category Menu -->
+												<nav class="category-menu mb-40">
+													<ul>
+									@foreach(var category in ViewBag.Categories)
+									{
+											<li><a asp-controller="Home" asp-action="Index" asp-route-categoryId="@category.Id">@category.Name</a></li>
+									}					
+								
+														
+													</ul>
+												</nav>
+											</div>
+											<!-- end of Header category list -->
+										</div>
+										<div class="col-lg-9 col-md-8">
+											<!-- ======  Hero slider content  ======= -->
 
-    }
-}
+											<div class="hero-slider hero-slider-one">
+												<!-- Hero Item Start -->
+												<div class="hero-item hero-bg-1">
+													<div class="row align-items-center justify-content-between">
+														<!-- Hero Content -->
+														<div class="hero-content col-md-8 offset-md-4 col-12 offset-0">
+															<h1>Sport Store</h1>
+															<h2><span>SPORT WINTER</span></h2>
+															<p>This is Photoshops version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+																Aenean
+																sollicitudin, lorem quis</p>
+															
+														</div>
+													</div>
+												</div><!-- Hero Item End -->
+
+												<!-- Hero Item Start -->
+										
+											</div>
+
+											<!-- ====  End of Hero slider content  ==== -->
+
+											<!-- ======  Featured service content  ======= -->
+
+											<div class="featured-service-container">
+												<div class="row">
+													<div class="col-lg-4 col-md-6">
+														<!-- single-feature -->
+														<div class="single-featured-service featured-service-bg-1">
+															<div class="single-featured-service-content">
+																<h3>Lorem ipsum dolor.</h3>
+																<p>Lorem ipsum dolor sit amet, consectetur adipisicing </p>
+																<a href="shop-left-sidebar.html">View Collection</a>
+															</div>
+														</div>
+														<!-- end of single feature -->
+													</div>
+													<div class="col-lg-4 col-md-6">
+														<!-- single-feature -->
+														<div class="single-featured-service featured-service-bg-2">
+															<div class="single-featured-service-content">
+																<h3>Lorem ipsum dolor.</h3>
+																<p>Lorem ipsum dolor sit amet, consectetur adipisicing </p>
+																<a href="shop-left-sidebar.html">View Collection</a>
+															</div>
+														</div>
+														<!-- end of single feature -->
+													</div>
+													<div class="col-lg-4 col-md-6">
+														<!-- single-feature -->
+														<div class="single-featured-service featured-service-bg-3">
+															<div class="single-featured-service-content">
+																<h3>Lorem ipsum dolor.</h3>
+																<p>Lorem ipsum dolor sit amet, consectetur adipisicing </p>
+																<a href="shop-left-sidebar.html">View Collection</a>
+															</div>
+														</div>
+														<!-- end of single feature -->
+													</div>
+												</div>
+
+											</div>
+
+											<!-- ====  End of Featured service content  ==== -->
+
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="row">
+										<div class="col-lg-3 col-md-4 mb-50">
+
+											<!-- ======  Homepage sidebar  ======= -->
+
+											<div class="homepage-sidebar">
+												<!-- vertical auto slider container -->
+												<div class="sidebar">
+													<h2 class="block-title">BESTSELLER</h2>
+													<div class="vertical-product-slider-container">
+														<div class="single-vertical-slider">
+															<div class="vertical-auto-slider-product-list">
+																<!-- single vertical product -->
+											@foreach(var slider in Model)
+											{
+												<div class="single-auto-vertical-product d-flex">
+																	<div class="product-image">
+																		<a href="#"><img width="250" height="250" src="@slider.StockPictureUrl"
+																				class="img-fluid" alt=""></a>
+																	</div>
+																	<div class="product-description">
+																		<h5 class="product-name"><a href="#">@slider.Name</a></h5>
+																		<div class="price-box">
+																			<h4>@slider.Price Azn</h4>
+																		</div>
+
+																	</div>
+																</div>
+											}
+											
+																<!-- end of single vertical product -->
+															
+
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- end of vertical auto slider container -->
+
+												<!-- homepage sidebar banner -->
+												<div class="sidebar">
+													<div class="homepage-sidebar-banner-container">
+														<a href="shop-left-sidebar.html">
+															<img width="269" height="389" src="assets/images/banners/banner-left.webp" class="img-fluid" alt="">
+														</a>
+													</div>
+												</div>
+												<!-- end of homepage sidebar banner -->
+
+												<!-- vertical auto slider container -->
+												<div class="sidebar">
+													<h2 class="block-title">LATEST PRODUCTS</h2>
+													<div class="vertical-product-slider-container">
+														<div class="single-vertical-slider">
+															<div class="vertical-auto-slider-product-list">
+											@foreach(var latslider in Model)
+											{
+												<!-- single vertical product -->
+																<div class="single-auto-vertical-product d-flex">
+																	<div class="product-image">
+																		<a href="#"><img width="250" height="250" src="@latslider.StockPictureUrl"
+																				class="img-fluid" alt=""></a>
+																	</div>
+																	<div class="product-description">
+																		<h5 class="product-name"><a href="#">@latslider.Name</a></h5>
+																		<div class="price-box">
+																			<h4>@latslider.Price Azn</h4>
+																		</div>
+																	</div>
+																</div>
+																<!-- end of single vertical product -->
+											}
+											
+															
+
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- end of vertical auto slider container -->
+											</div>
+
+											<!-- ====  End of Homepage sidebar  ==== -->
+
+										</div>
+                                       @*All Products*@
+										<div class="col-lg-9 col-md-8">
+                    <div class="shop-page-container">
+                        <div class="shop-page-header">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2>New Products</h2>
+                                </div>
+                                <div class="col-lg-4 col-sm-12 d-flex justify-content-start align-items-center">
+                                    <!-- Product view mode -->
+                                    <p class="view-mode">View:</p>
+                                    <div class="view-mode-icons">
+                                        <a class="active" href="#" data-target="grid"><i class="fa fa-th"></i>
+                                            <span>Grid</span></a>
+                                        <a href="#" data-target="list" class=""><i class="fa fa-list"></i><span>List</span></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-sm-12 d-flex flex-column flex-sm-row justify-content-lg-end justify-content-start">
+                                    <!-- Product Showing -->
+                                    <div class="product-showing mr-20 mb-sm-10">
+                                        <p>Show
+                                            <select name="showing">
+                                                <option value="1">8</option>
+                                                <option value="2">12</option>
+                                                <option value="3">16</option>
+                                                <option value="4">20</option>
+                                                <option value="5">24</option>
+                                            </select>
+                                            <span>per page</span>
+                                        </p>
+                                    </div>
+
+                                    <!-- Product Short -->
+                                    <div class="product-sort">
+                                        <p>Sort by
+                                            <select name="sortby">
+                                                <option value="trending">Trending items</option>
+                                                <option value="sales">Best sellers</option>
+                                                <option value="rating">Best rated</option>
+                                                <option value="date">Newest items</option>
+                                                <option value="price-asc">Price: low to high</option>
+                                                <option value="price-desc">Price: high to low</option>
+                                            </select>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="shop-product-wrap row five-column grid">
+                                @foreach(var item in Model)
+                                {
+                                   <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
+                                <!-- product start -->
+                                <div class="single-product shop-page-product single-grid-product ">
+                                    <div class="single-product-content">
+                                        <div class="product-image">
+                                            <a asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id" >
+                                                <img width="250" height="250" src="@item.StockPictureUrl" class="img-fluid" alt="">
+                                                <img width="250" height="250" src="@item.StockPictureUrl" class="img-fluid" alt="">
+                                            </a>
+                                           
+                                        </div>
+                                        <h5 class="product-name"><a href="#">@item.Name</a></h5>
+                                        <div class="price-box">
+                                            <h4>@item.Price Azn</h4>
+                                        </div>
+
+                                        <a asp-controller="Basket" asp-action="AddBasketItem" asp-route-productId ="@item.Id" class="add-to-cart-btn" ><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                                    </div>
+                                </div>
+                                <!-- product end -->
+
+                                <!-- product list start -->
+                                <div class="single-list-product">
+                                    <div class="list-product-image ">
+                                        <a asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id" >
+                                            <img width="250" height="250" src="@item.StockPictureUrl" class="img-fluid" alt="">
+                                             <img width="250" height="250" src="@item.StockPictureUrl" class="img-fluid" alt="">
+                                            
+                                        </a>
+                                       
+                                    </div>
+
+                                    <div class="list-product-desc">
+                                        <h5 class="product-name"><a href="#">@item.Name</a></h5>
+                                        <div class="price-box">
+                                            <h4>@item.Price Azn</h4>
+                                        </div>
+                                        <p class="product-description">@item.Description</p>
+                                        
+                                      
+                                        <a asp-controller="Basket" asp-action="AddBasketItem" asp-route-productId ="@item.Id" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>
+                                            Add to Cart</a>
+                                    </div>
+                                </div>
+                                <!-- product list end -->
+                            </div>
+                                   
+                                  
+                                }
+                               
+
+
+                        </div>
+
+                        <!-- product pagination -->
+
+                        <div class="shop-page-pagination-section d-flex justify-content-between align-items-center">
+                            <div class="search-result">
+                                Showing 1 - 6 of 9 items
+                            </div>
+                            <div class="pagination-container">
+                                <ul class="pagination justify-content-left justify-content-lg-center">
+                                    <li class="previous disabled"><a aria-disabled="true" href="#"><i class="fa fa-angle-left"></i>Back</a></li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li class="dots"> - - </li>
+                                    <li><a href="#">20</a></li>
+                                    <li class="next"><a href="#">Next<i class="fa fa-angle-right"></i></a></li>
+                                </ul>
+                            </div>
+
+                            
+                        </div>
+
+                        <!-- end of product pagination -->
+
+                    </div>
+                </div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<!-- homepage wide banner section -->
+
+									<div class="home-wide-bg-container mb-50">
+										<a class="banner-width-bg-link" href="#">
+											<img width="1169" height="187" src="assets/images/banners/banner-wide.webp" alt="">
+										</a>
+									</div>
+
+									<!-- end of homepage wide banner section -->
+								</div>
+							</div>
+
+							<!-- latest product section -->
+
+							<div class="latest-product-section  mb-50">
+								<div class="row">
+									<div class="col-lg-12">
+										<!-- Block title -->
+										<div class="block-title">
+											<h2>LATEST PRODUCTS</h2>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+				@foreach(var latItem in Model)
+				{
+					<div class="col-lg-2 col-md-4 col-sm-6">
+										<!-- single latest product -->
+										<div class="single-latest-product">
+											<div class="product-image">
+												<a href="#">
+													<img width="250" height="250" src="@latItem.StockPictureUrl" class="img-fluid" alt="">
+													<img width="250" height="250" src="@latItem.StockPictureUrl" class="img-fluid" alt="">
+												</a>
+											</div>
+											<div class="product-description">
+												<h5 class="product-name"><a href="#">@latItem.Name</a></h5>
+												<div class="price-box">
+													<h4>@latItem.Price Azn</h4>
+												</div>
+											</div>
+
+											<div class="latest-product-hover-content">
+												<a href="#" data-bs-toggle="modal" data-bs-target="#add-to-cart-modal-container"><i
+														class="fa fa-shopping-cart"></i>
+													Add to cart</a>
+												<p>
+													<a href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal-container">Quick View</a> 
+												</p>
+											</div>
+										</div>
+										<!-- end of single latest product -->
+									</div>
+				}
+				
+									
+								</div>
+							</div>
+
+							<!-- end of latest product section -->
+						</div>
+					</div>
