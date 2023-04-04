@@ -12,7 +12,7 @@ using SportStore.Services.Order.Infrastructure;
 namespace SportStore.Services.Order.Infrastructure.Migrations
 {
     [DbContext(typeof(OrderDbContext))]
-    [Migration("20230403213816_initial")]
+    [Migration("20230404181236_initial")]
     partial class initial
     {
         /// <inheritdoc />
