@@ -8,46 +8,71 @@ namespace SportStore.Web.Controllers;
 
 public class AuthController : Controller
 {
-    private readonly IIdentityService _identityService;
-
-    public AuthController(IIdentityService identityService)
-    {
-        this._identityService = identityService;
-    }
-
-    public IActionResult SignIn()
-    {
-        return View();
-    }
-    [HttpPost]
-    public async Task<IActionResult> SignIn(SigninInput signinInput)
-    {
-        if (!ModelState.IsValid)
-        {
-            return View();
-        }
-        var response = await _identityService.SignIn(signinInput);
-        if (!response.IsSuccessful)
-        {
-            response.Errors.ToList().ForEach(x =>
-            {
-                ModelState.AddModelError(String.Empty, x);
-            });
+	private readonly IIdentityService _identityService;
+	private readonly IRegisterService _registerService;
 
 
-            return View();
-        }
+	public AuthController(IIdentityService identityService, IUserService userService, IRegisterService registerService)
+	{
+		this._identityService = identityService;
+		this._registerService = registerService;
+	}
+
+	public IActionResult SignIn()
+	{
+		return View();
+	}
+	[HttpPost]
+	public async Task<IActionResult> SignIn(SigninInput signinInput)
+	{
+		if (!ModelState.IsValid)
+		{
+			return View();
+		}
+		var response = await _identityService.SignIn(signinInput);
+		if (!response.IsSuccessful)
+		{
+			response.Errors.ToList().ForEach(x =>
+			{
+				ModelState.AddModelError(String.Empty, x);
+			});
 
 
-        return RedirectToAction(nameof(Index), "Home");
+			return View();
+		}
 
-    }
 
-    public async Task<IActionResult> LogOut()
-    {
-        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-        await _identityService.RevokeRefreshToken();
-        return RedirectToAction(nameof(HomeController.Index), "Home");
-    }
+		return RedirectToAction(nameof(Index), "Home");
+
+	}
+	public IActionResult SignUp()
+	{
+		return View();
+	}
+
+	[HttpPost]
+	public async Task<IActionResult> SignUp(SignUpInput signUpInput)
+	{
+		if (!ModelState.IsValid)
+		{
+			return View();
+		}
+		var response = await _registerService.SignUp(signUpInput);
+		if (!response)
+		{
+			return View();
+		}
+
+		return RedirectToAction("SignIn", "Auth");
+
+	}
+
+
+	public async Task<IActionResult> LogOut()
+	{
+		await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+		await _identityService.RevokeRefreshToken();
+		return RedirectToAction(nameof(HomeController.Index), "Home");
+	}
 }
 
