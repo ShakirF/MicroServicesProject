@@ -65,7 +65,8 @@
       "UpStreamScheme": "http",
       //"DelegatingHandler": [ "TokenExchangeDelegateHandler" ],
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "GatewayAuthenticationScheme"   
+        "AuthenticationProviderKey": "GatewayAuthenticationScheme",
+        "AllowedScopes": [ "discount_fullpermission" ]
       }
     },
     {
