@@ -43,7 +43,7 @@ namespace SportStore.IdentityServer.Services
 				return;
 			}
 
-			context.Result = new GrantValidationResult(subjectClaim.Value, "accsess_token", tokenValifateResult.Claims);
+			context.Result = new GrantValidationResult(subjectClaim.Value, "access_token", tokenValifateResult.Claims);
 			return;
 		}
 	}
