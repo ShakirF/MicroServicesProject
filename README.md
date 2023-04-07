@@ -1,7 +1,7 @@
 # MicroservicesProject
 With .Net 7.0  Microservice Architecture.
 Asynchronous and Aynchronous between Microservices.
-API Gateway ( Ocelot Libarary).
+API Gateway ( Ocelot Library).
 RabbitMQ.
 Docker & Docker Compose.
 IdentityServer4.
