@@ -1,5 +1,5 @@
 # MicroservicesProject
-.Net 7.0 ile Microservice Architecture.
+With .Net 7.0  Microservice Architecture.
 Asynchronous and Aynchronous between Microservices.
 API Gateway ( Ocelot Libarary).
 RabbitMQ.
